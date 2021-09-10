@@ -1,0 +1,40 @@
+<%- include('partials/header.ejs') %>
+
+<section class="notice">
+    <div class="center">
+        <div class="single-notice">
+            <h2><%= notice.title %></h2>
+            <div class="author-box">
+                <img src="/public/assets/author.jpg" alt="">
+                <h4>Por <%= notice.autor %></h4>
+            </div>
+            <div class="content-img">
+                <img src="<%= notice.image %>" alt="">
+            </div>
+            <p><%- notice.content %></p>
+        </div>
+
+        <div class="most-read">
+            <div class="most-read-top">
+                <h3>Mais lidas</h3>
+            </div>
+            <div class="most-read-container">
+                <% for(let i = 0; i < postsTop.length; i++){ %>
+                    <div class="most-read-single">
+                        <img src="<%= postsTop[i].image %>" alt="">
+                        <div class="content-most-read">
+                            <h6><%= postsTop[i].category %></h6>
+                            <h5><%= postsTop[i].title %></h5>
+                            <div>
+                                <span class="views"><%= postsTop[i].views %><img src="/public/assets/view.png"></span>
+                                <a href="<%= postsTop[i].slug %>">Ler mais</a>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer.ejs') %>

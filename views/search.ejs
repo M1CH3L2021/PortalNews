@@ -1,0 +1,28 @@
+<%- include('partials/header.ejs') %>
+
+<section class="notice-search">
+    <div class="center">
+        <div class="most-read">
+            <div class="most-read-top">
+                <h3><%= contagem %> resultado(s)</h3>
+            </div>
+            <div class="most-read-container">
+
+                <% for(let i = 0; i < posts.length; i++){ %>
+                    <div class="most-read-single">
+                        <img src="<%= posts[i].image %>" alt="">
+                        <div class="content-most-read">
+                            <h6><%= posts[i].category %></h6>
+                            <h5><%= posts[i].title %></h5>
+                            <p><%- posts[i].description %>...</p>
+                            <a href="<%= posts[i].slug %>">Ler mais</a>
+                        </div>
+                    </div>
+                <% } %>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer.ejs') %>
